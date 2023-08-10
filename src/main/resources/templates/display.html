@@ -1,0 +1,140 @@
+<!--<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Meaning here</title>
+</head>
+<body>
+
+<ul th:each="cp: ${element.meanings}">
+    <li>
+   Part of Speech: <span th:text="${cp.partOfSpeech}"></span>
+    <br><br>
+    <ul th:each="cd: ${cp.definitions}">
+    <li>
+        Referential definition: <span th:text="${cd.definition}"></span>
+        <br>
+        Example Sentence: <span th:text="${cd.example}"></span>
+        <br>
+
+    </li>
+    <br>
+
+</ul>
+
+    Synonyms:   <ul th:each="cs: ${cp.synonyms}">
+    <li>
+        <span th:text="${cs}"></span>
+        <br>
+
+    </li>
+</ul>
+<br>
+        Antonyms:   <ul th:each="ca: ${cp.antonyms}">
+        <li>
+            <span th:text="${ca}"></span>
+            <br>
+
+        </li>
+    </ul>
+        <br>
+    </li>
+</ul>
+
+</body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Meaning here</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #3498db, #2c3e50);
+            background-attachment: fixed;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            padding: 10px;
+            border-bottom: 1px solid #555;
+        }
+
+        ul ul {
+            margin-left: 20px;
+        }
+
+        span.part-of-speech {
+            color: #ffcc00;
+            font-weight: bold;
+        }
+
+        span.definition {
+            color: #ff9966;
+        }
+
+        span.example {
+            color: #66cc99;
+        }
+
+        span.synonym {
+            color: #6699cc;
+        }
+
+        span.antonym {
+            color: #ff9999;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <ul th:each="cp: ${element.meanings}">
+        <li>
+            Part of Speech: <span class="part-of-speech" th:text="${cp.partOfSpeech}"></span>
+            <ul th:each="cd: ${cp.definitions}">
+                <li>
+                    Referential definition: <span class="definition" th:text="${cd.definition}"></span>
+                    <br>
+                    Example Sentence: <span class="example" th:text="${cd.example}"></span>
+                </li>
+            </ul>
+
+            Synonyms:
+            <ul th:each="cs: ${cp.synonyms}">
+                <li>
+                    <span class="synonym" th:text="${cs}"></span>
+                </li>
+            </ul>
+<br>
+            Antonyms:
+            <ul th:each="ca: ${cp.antonyms}">
+                <li>
+                    <span class="antonym" th:text="${ca}"></span>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
+

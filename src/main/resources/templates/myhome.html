@@ -1,0 +1,104 @@
+<!--
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Our Dictionary</title>
+</head>
+<body>
+<form th:action="@{/processForm}" th:object="${current}" method="POST">
+
+Enter your words here: <input type="text" th:field="*{word}"/>-->
+    <!--  Add error message if present -->
+<!--    <span th:if="${#fields.hasErrors('word')}"
+          th:errors="*{word}"
+         ></span>
+
+    <br><br>
+
+    <input type="submit" value="Submit"/>
+
+</form>
+
+</body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Our Dictionary</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #3498db, #2c3e50);
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            text-align: center;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #3498db;
+        }
+
+        input[type="submit"] {
+            background-color: #800000; /* Maroon color */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.2s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #8b0000; /* Darker maroon color on hover */
+        }
+
+        .error-message {
+            color: #e74c3c;
+        }
+
+        h2 {
+            color: #00ff00; /* Green color */
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2 style="text-align:center;">Our Dictionary</h2>
+    <form th:action="@{/processForm}" th:object="${current}" method="POST">
+        <label for="word" style="color:#333;">Enter your word:</label><br>
+        <input type="text" id="word" name="word" th:field="*{word}" placeholder="E.g., Dictionary"/><br>
+        <span class="error-message" th:if="${#fields.hasErrors('word')}" th:errors="*{word}"></span><br>
+        <input type="submit" value="Submit"/>
+    </form>
+</div>
+</body>
+</html>
+
